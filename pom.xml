@@ -25,7 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <timestamp>${maven.build.timestamp}</timestamp>
         <version.number>
-            ${git.commit.id.describe-short}
+            ${timestamp}.${git.commit.id.describe-short}
         </version.number>
         <DOWNLOADURL>https://github.com/kutyla-philipp/simple-dash/archive/master.zip</DOWNLOADURL>
     </properties>
