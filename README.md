@@ -1,6 +1,6 @@
 [![Build Status](https://ci.kghf.io/buildStatus/icon?job=simple-dash)](https://ci.kghf.io/job/simple-dash/)
 ![Docker Pulls](https://img.shields.io/docker/pulls/larskghf/simple-dash)
-## simple-dash-docker
+## simple-dash (docker image)
 
 Project: https://github.com/kutyla-philipp/simple-dash 
 
