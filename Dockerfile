@@ -1,4 +1,4 @@
-FROM larskghf/debian-baseimage:latest as downloader
+FROM debian:buster-slim as downloader
 
 ARG SIMPLE_DASH_DL_URL
 
