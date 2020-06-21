@@ -21,6 +21,9 @@ steps:
 trigger:
   branch:
     - feature/*
+  event:
+    include:
+      - pull_request
 
 ---
 kind: pipeline
