@@ -17,6 +17,9 @@ steps:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
     when:
       branch: feature/*
+      event:
+        include:
+          - pull_request
 
 
   - name: dockerBuildPush
