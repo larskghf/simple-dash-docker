@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: build
+name: branch
 
 steps:
   - name: getTimestamp
@@ -15,15 +15,33 @@ steps:
       dry_run: true
       build_args:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
-    when:
-      branch: feature/*
 
 trigger:
   branch:
     - feature/*
+
+---
+kind: pipeline
+type: docker
+name: pullrequest
+
+steps:
+  - name: getTimestamp
+    image: debian:buster-slim
+    commands:
+      - echo -n "$(date +%Y-%m-%d-%H%M).${DRONE_COMMIT_SHA:0:7},latest" > .tags
+
+  - name: dockerBuild
+    image: plugins/docker
+    settings:
+      repo: kghf/simple-dash
+      dry_run: true
+      build_args:
+        - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
+
+trigger:
   event:
-    include:
-      - pull_request
+    - pull_request
 
 ---
 kind: pipeline
