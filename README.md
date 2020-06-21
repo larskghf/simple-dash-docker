@@ -15,7 +15,7 @@ Quick Start: `docker run --name simple-dash -d -p 80:80 kghf/simple-dash:latest`
 Quick Start with modified config.json: 
 ```bash
 #start Docker Container
-docker run --name tmp-simple-dash -d -p 80:80 larskghf/simple-dash:latest
+docker run --name tmp-simple-dash -d -p 80:80 kghf/simple-dash:latest
 
 #copy config.json to host file system
 docker cp tmp-simple-dash:/usr/share/nginx/html/config.json /host/path/config.json
@@ -27,5 +27,5 @@ vi /host/path/config.json
 docker rm -f tmp-simple-dash 
 
 #start docker container with modified config.json
-docker run --name simple-dash -d -p 80:80 -v /host/path/config.json:/usr/share/nginx/html/config.json larskghf/simple-dash:latest
+docker run --name simple-dash -d -p 80:80 -v /host/path/config.json:/usr/share/nginx/html/config.json kghf/simple-dash:latest
 ```
