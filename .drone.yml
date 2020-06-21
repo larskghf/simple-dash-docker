@@ -8,6 +8,16 @@ steps:
     commands:
       - echo -n "$(date +%Y-%m-%d-%H%M).${DRONE_COMMIT_SHA:0:7},latest" > .tags
 
+  - name: dockerBuild
+    image: plugins/docker
+    settings:
+      repo: kghf/simple-dash
+      dry_run: true
+      build_args:
+        - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
+    when:
+      branch: feature/*
+
   - name: dockerBuildPush
     image: plugins/docker
     settings:
@@ -17,7 +27,11 @@ steps:
         from_secret: docker_password
       build_args:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
+    when:
+      branch: master
+
 
 trigger:
   branch:
     - master
+    - feature/*
