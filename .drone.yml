@@ -18,6 +18,7 @@ steps:
     when:
       branch: feature/*
 
+
   - name: dockerBuildPush
     image: plugins/docker
     settings:
@@ -29,6 +30,9 @@ steps:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
     when:
       branch: master
+      event:
+        exclude:
+          - pull_request
 
 
 trigger:
