@@ -45,7 +45,6 @@ steps:
       build_args:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
 
-
 trigger:
   branch:
     - master
