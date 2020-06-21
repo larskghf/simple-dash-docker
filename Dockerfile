@@ -5,7 +5,7 @@ ARG SIMPLE_DASH_DL_URL
 WORKDIR /tmp
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends unzip wget \
+    && apt-get install -y --no-install-recommends unzip wget ca-certificates \
     && rm -rf /var/lib/apt/lists/* \
     && wget ${SIMPLE_DASH_DL_URL} \
     && unzip master.zip \
