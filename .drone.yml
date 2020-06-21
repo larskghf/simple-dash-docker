@@ -1,6 +1,6 @@
 kind: pipeline
 type: docker
-name: default
+name: build
 
 steps:
   - name: getTimestamp
@@ -17,10 +17,23 @@ steps:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
     when:
       branch: feature/*
-      event:
-        include:
-          - pull_request
 
+trigger:
+  branch:
+    - feature/*
+  event:
+    - pull_request
+
+---
+kind: pipeline
+type: docker
+name: buildPush
+
+steps:
+  - name: getTimestamp
+    image: debian:buster-slim
+    commands:
+      - echo -n "$(date +%Y-%m-%d-%H%M).${DRONE_COMMIT_SHA:0:7},latest" > .tags
 
   - name: dockerBuildPush
     image: plugins/docker
@@ -31,14 +44,11 @@ steps:
         from_secret: docker_password
       build_args:
         - SIMPLE_DASH_DL_URL=https://github.com/kutyla-philipp/simple-dash/archive/master.zip
-    when:
-      branch: master
-      event:
-        exclude:
-          - pull_request
 
 
 trigger:
   branch:
     - master
-    - feature/*
+  event:
+    exclude:
+      - pull_request
