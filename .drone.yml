@@ -6,7 +6,7 @@ steps:
   - name: getTimestamp
     image: debian:buster-slim
     commands:
-      - echo -n "$(date +%Y-%m-%d-%H%M).${DRONE_COMMIT_SHA:0:7},latest" > .tags
+      - echo -n "$(date +%Y-%m-%d).${DRONE_COMMIT_SHA:0:8},latest" > .tags
   - name: dockerBuild
     image: plugins/docker
     settings:
@@ -28,7 +28,7 @@ steps:
   - name: getTimestamp
     image: debian:buster-slim
     commands:
-      - echo -n "$(date +%Y-%m-%d-%H%M).${DRONE_COMMIT_SHA:0:7},latest" > .tags
+      - echo -n "$(date +%Y-%m-%d).${DRONE_COMMIT_SHA:0:8},latest" > .tags
   - name: dockerBuildPush
     image: plugins/docker
     settings:
