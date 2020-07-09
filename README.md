@@ -1,10 +1,15 @@
 [![Build Status](https://drone.kghf.io/api/badges/larskghf/simple-dash-docker/status.svg)](https://drone.kghf.io/larskghf/simple-dash-docker)
 [![Docker Pulls](https://img.shields.io/docker/pulls/kghf/simple-dash)](https://hub.docker.com/r/kghf/simple-dash)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/kghf/simple-dash/latest)](https://hub.docker.com/r/kghf/simple-dash)
 ## simple-dash (docker image)
 
-Project: https://github.com/kutyla-philipp/simple-dash 
+GitHub Project: https://github.com/kutyla-philipp/simple-dash 
 
 Demo: https://kutyla-philipp.github.io/simple-dash/
+
+Dockerfile: https://github.com/larskghf/simple-dash-docker
+
+Docker Hub: https://hub.docker.com/r/kghf/simple-dash
 
 ---
 
